@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif">
+  <rect width="920" height="480" rx="16" fill="#ffffff"/>
+  <rect x="1" y="1" width="918" height="478" rx="15" fill="none" stroke="#d0d7de" stroke-width="2"/>
+  <text x="32" y="46" font-size="22" font-weight="700" fill="#1f2328">Claude Fleet 전체 구조</text>
+  <text x="32" y="70" font-size="13.5" fill="#57606a">여러 PC의 Claude Code / Codex 세션을 허브 한 곳으로 모아 브라우저·사령탑에서 지휘합니다.</text>
+
+  <!-- Agents column -->
+  <text x="70" y="118" font-size="13" font-weight="700" fill="#7c3aed">각 PC (에이전트)</text>
+  <g>
+    <rect x="40" y="132" width="200" height="62" rx="10" fill="#faf5ff" stroke="#7c3aed" stroke-width="1.6"/>
+    <text x="58" y="160" font-size="14" font-weight="600" fill="#1f2328">💻 office-pc</text>
+    <text x="58" y="180" font-size="12" fill="#57606a">crawler · api-server</text>
+  </g>
+  <g>
+    <rect x="40" y="208" width="200" height="62" rx="10" fill="#faf5ff" stroke="#7c3aed" stroke-width="1.6"/>
+    <text x="58" y="236" font-size="14" font-weight="600" fill="#1f2328">💻 hospital-pc</text>
+    <text x="58" y="256" font-size="12" fill="#57606a">emr-batch</text>
+  </g>
+  <g>
+    <rect x="40" y="284" width="200" height="62" rx="10" fill="#faf5ff" stroke="#7c3aed" stroke-width="1.6"/>
+    <text x="58" y="312" font-size="14" font-weight="600" fill="#1f2328">💻 laptop</text>
+    <text x="58" y="332" font-size="12" fill="#57606a">notebook-tests</text>
+  </g>
+  <text x="58" y="374" font-size="11.5" fill="#57606a">agent.js 상주 · 프로젝트 디렉터리에서</text>
+  <text x="58" y="390" font-size="11.5" fill="#57606a">claude / codex 프로세스 실행</text>
+
+  <!-- Hub -->
+  <rect x="360" y="150" width="200" height="180" rx="14" fill="#0f172a" stroke="#0ea5e9" stroke-width="2"/>
+  <text x="460" y="200" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">허브 서버</text>
+  <text x="460" y="222" font-size="12.5" fill="#9fb3c8" text-anchor="middle">server/  ·  :8787</text>
+  <line x1="384" y1="238" x2="536" y2="238" stroke="#243447" stroke-width="1"/>
+  <text x="460" y="262" font-size="11.5" fill="#cbd5e1" text-anchor="middle">메시지 중계 (WS)</text>
+  <text x="460" y="282" font-size="11.5" fill="#cbd5e1" text-anchor="middle">대시보드 서빙 · HTTP API</text>
+  <text x="460" y="302" font-size="11.5" fill="#cbd5e1" text-anchor="middle">이벤트 버퍼 · fleet-memory</text>
+  <text x="460" y="360" font-size="11.5" fill="#57606a" text-anchor="middle">항상 켜둘 머신 1대</text>
+  <text x="460" y="376" font-size="11.5" fill="#57606a" text-anchor="middle">(맥미니 · NAS · 클라우드 VM)</text>
+
+  <!-- Clients column -->
+  <text x="682" y="118" font-size="13" font-weight="700" fill="#0ea5e9">지휘 · 관찰 (클라이언트)</text>
+  <g>
+    <rect x="680" y="132" width="200" height="58" rx="10" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="1.6"/>
+    <text x="698" y="158" font-size="14" font-weight="600" fill="#1f2328">🖥 웹 대시보드</text>
+    <text x="698" y="177" font-size="12" fill="#57606a">실시간 모니터 · 프롬프트</text>
+  </g>
+  <g>
+    <rect x="680" y="200" width="200" height="58" rx="10" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="1.6"/>
+    <text x="698" y="226" font-size="14" font-weight="600" fill="#1f2328">🧭 사령탑 Claude</text>
+    <text x="698" y="245" font-size="12" fill="#57606a">허브 API로 대신 지시</text>
+  </g>
+  <g>
+    <rect x="680" y="268" width="200" height="58" rx="10" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="1.6"/>
+    <text x="698" y="294" font-size="14" font-weight="600" fill="#1f2328">📱 모바일 브라우저</text>
+    <text x="698" y="313" font-size="12" fill="#57606a">외출 중에도 확인·지시</text>
+  </g>
+
+  <!-- Connectors -->
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#8899a6"/></marker>
+  </defs>
+  <line x1="240" y1="163" x2="358" y2="210" stroke="#8899a6" stroke-width="1.8" marker-end="url(#ah)"/>
+  <line x1="240" y1="239" x2="358" y2="240" stroke="#8899a6" stroke-width="1.8" marker-end="url(#ah)"/>
+  <line x1="240" y1="315" x2="358" y2="272" stroke="#8899a6" stroke-width="1.8" marker-end="url(#ah)"/>
+  <text x="300" y="196" font-size="11" fill="#8899a6" text-anchor="middle" font-weight="600">WebSocket</text>
+
+  <line x1="562" y1="200" x2="678" y2="161" stroke="#8899a6" stroke-width="1.8" marker-end="url(#ah)"/>
+  <line x1="562" y1="238" x2="678" y2="229" stroke="#8899a6" stroke-width="1.8" marker-end="url(#ah)"/>
+  <line x1="562" y1="270" x2="678" y2="297" stroke="#8899a6" stroke-width="1.8" marker-end="url(#ah)"/>
+  <text x="620" y="196" font-size="11" fill="#8899a6" text-anchor="middle" font-weight="600">WS / HTTP</text>
+
+  <text x="32" y="452" font-size="12" fill="#57606a">① 웹에서 입력한 프롬프트가 → ② 허브를 거쳐 → ③ 해당 PC에서 실제 코드 실행으로 이어집니다. 토큰이 유일한 방어선입니다.</text>
+</svg>

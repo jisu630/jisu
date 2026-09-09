@@ -12,6 +12,8 @@
 - **에이전트(agent/)** — 각 PC에서 상주. 대시보드 명령을 받아 `claude --print --input-format stream-json --output-format stream-json` 프로세스를 프로젝트 디렉터리에서 띄우고, 출력 이벤트를 실시간으로 허브에 흘려보냅니다. 프로세스가 죽은 세션에 프롬프트를 보내면 `--resume <session_id>` 로 자동 재개합니다.
 - **대시보드(dashboard/)** — 의존성 없는 HTML 한 장. PC/프로젝트/세션 목록, 실시간 트랜스크립트(어시스턴트 답변, 도구 사용, 도구 결과, 턴 비용), 프롬프트 입력창.
 
+> 📖 **그림과 함께 보는 상세 사용 매뉴얼: [docs/MANUAL.md](docs/MANUAL.md)** — 설치·대시보드 화면·사령탑·직결 모드·보안까지 단계별로 설명합니다.
+
 ## 빠른 시작
 
 요구사항: Node.js 18+, 각 PC에 Claude Code CLI 설치 및 로그인.

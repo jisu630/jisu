@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 470" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif">
+  <rect width="920" height="470" rx="16" fill="#ffffff"/>
+  <rect x="1" y="1" width="918" height="468" rx="15" fill="none" stroke="#d0d7de" stroke-width="2"/>
+  <text x="32" y="46" font-size="22" font-weight="700" fill="#1f2328">설치 흐름 — 모든 머신에서 같은 한 줄</text>
+
+  <!-- common command -->
+  <rect x="32" y="66" width="856" height="40" rx="8" fill="#0f172a"/>
+  <text x="48" y="92" font-size="14" font-family="ui-monospace, Menlo, Consolas, monospace" fill="#7ee787">git clone … claude-fleet &amp;&amp; cd claude-fleet &amp;&amp; npm install &amp;&amp; npm run setup</text>
+
+  <!-- branch: role -->
+  <text x="460" y="138" font-size="13.5" fill="#57606a" text-anchor="middle">설치 도우미: "이 머신의 역할을 고르세요"</text>
+  <defs>
+    <marker id="a2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#8899a6"/></marker>
+  </defs>
+  <line x1="460" y1="106" x2="460" y2="128" stroke="#8899a6" stroke-width="1.6"/>
+  <line x1="240" y1="150" x2="240" y2="176" stroke="#8899a6" stroke-width="1.6" marker-end="url(#a2)"/>
+  <line x1="680" y1="150" x2="680" y2="176" stroke="#8899a6" stroke-width="1.6" marker-end="url(#a2)"/>
+  <line x1="240" y1="150" x2="680" y2="150" stroke="#8899a6" stroke-width="1.6"/>
+  <line x1="460" y1="144" x2="460" y2="150" stroke="#8899a6" stroke-width="1.6"/>
+
+  <!-- HUB card -->
+  <rect x="56" y="180" width="368" height="230" rx="12" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="1.8"/>
+  <rect x="56" y="180" width="368" height="34" rx="12" fill="#0ea5e9"/>
+  <text x="74" y="203" font-size="14" font-weight="700" fill="#ffffff">1) 허브 서버  — 항상 켜둘 1대</text>
+  <text x="74" y="242" font-size="12.5" fill="#1f2328">✓ 토큰 자동 생성 → <tspan font-family="ui-monospace, monospace" font-size="11.5">.fleet-token</tspan></text>
+  <text x="74" y="266" font-size="12.5" fill="#1f2328">✓ 이 머신의 IP · 접속 주소 안내</text>
+  <text x="74" y="290" font-size="12.5" fill="#1f2328">✓ 브라우저 접속 토큰 출력</text>
+  <text x="74" y="326" font-size="12" fill="#57606a">실행:</text>
+  <rect x="74" y="336" width="330" height="30" rx="6" fill="#0f172a"/>
+  <text x="86" y="356" font-size="12.5" font-family="ui-monospace, Menlo, monospace" fill="#7ee787">npm run server</text>
+  <text x="74" y="392" font-size="11.5" fill="#57606a">상주: pm2 · systemd · install-macos.sh</text>
+
+  <!-- AGENT card -->
+  <rect x="496" y="180" width="368" height="230" rx="12" fill="#faf5ff" stroke="#7c3aed" stroke-width="1.8"/>
+  <rect x="496" y="180" width="368" height="34" rx="12" fill="#7c3aed"/>
+  <text x="514" y="203" font-size="14" font-weight="700" fill="#ffffff">2) 에이전트  — 세션 돌릴 각 PC</text>
+  <text x="514" y="242" font-size="12.5" fill="#1f2328">① 허브 IP · 토큰 입력 (연결·검증 자동)</text>
+  <text x="514" y="266" font-size="12.5" fill="#1f2328">② 이 PC 이름 지정</text>
+  <text x="514" y="290" font-size="12.5" fill="#1f2328">③ 프로젝트 경로 등록 (여러 개 가능)</text>
+  <text x="514" y="314" font-size="12.5" fill="#1f2328">④ Codex 사용 · 권한 모드 선택</text>
+  <text x="514" y="350" font-size="12" fill="#57606a">실행:</text>
+  <rect x="514" y="360" width="330" height="30" rx="6" fill="#0f172a"/>
+  <text x="526" y="380" font-size="12.5" font-family="ui-monospace, Menlo, monospace" fill="#7ee787">npm run agent</text>
+
+  <text x="32" y="444" font-size="12" fill="#57606a">마지막으로 브라우저에서 <tspan font-family="ui-monospace, monospace">http://허브IP:8787</tspan> 을 열고 토큰을 입력하면 대시보드가 뜹니다.</text>
+</svg>

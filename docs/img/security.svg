@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 440" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif">
+  <rect width="920" height="440" rx="16" fill="#ffffff"/>
+  <rect x="1" y="1" width="918" height="438" rx="15" fill="none" stroke="#d0d7de" stroke-width="2"/>
+  <text x="32" y="44" font-size="21" font-weight="700" fill="#1f2328">네트워크 &amp; 보안 구성</text>
+  <text x="32" y="68" font-size="13" fill="#57606a">웹 프롬프트가 각 PC에서 코드 실행으로 이어지므로, 사설망 안에서만 접근하도록 구성하세요.</text>
+
+  <!-- private network zone -->
+  <rect x="40" y="92" width="540" height="300" rx="14" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.8" stroke-dasharray="7 5"/>
+  <text x="60" y="118" font-size="13" font-weight="700" fill="#15803d">🔒 사설망 (Tailscale VPN 권장)</text>
+
+  <rect x="70" y="140" width="200" height="70" rx="10" fill="#0f172a" stroke="#0ea5e9" stroke-width="1.6"/>
+  <text x="170" y="170" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">허브 서버 :8787</text>
+  <text x="170" y="192" font-size="10.5" fill="#9fb3c8" text-anchor="middle">FLEET_BIND 로 인터페이스 제한</text>
+
+  <rect x="70" y="238" width="130" height="58" rx="9" fill="#faf5ff" stroke="#7c3aed" stroke-width="1.4"/>
+  <text x="135" y="264" font-size="12" font-weight="600" fill="#1f2328" text-anchor="middle">💻 office-pc</text>
+  <text x="135" y="282" font-size="10" fill="#57606a" text-anchor="middle">agent</text>
+  <rect x="216" y="238" width="130" height="58" rx="9" fill="#faf5ff" stroke="#7c3aed" stroke-width="1.4"/>
+  <text x="281" y="264" font-size="12" font-weight="600" fill="#1f2328" text-anchor="middle">💻 hospital-pc</text>
+  <text x="281" y="282" font-size="10" fill="#57606a" text-anchor="middle">agent</text>
+  <rect x="362" y="238" width="130" height="58" rx="9" fill="#faf5ff" stroke="#7c3aed" stroke-width="1.4"/>
+  <text x="427" y="264" font-size="12" font-weight="600" fill="#1f2328" text-anchor="middle">📱 폰 브라우저</text>
+  <text x="427" y="282" font-size="10" fill="#57606a" text-anchor="middle">대시보드</text>
+
+  <rect x="360" y="140" width="200" height="70" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.4"/>
+  <text x="460" y="166" font-size="12" font-weight="700" fill="#1f2328" text-anchor="middle">🧭 사령탑 Claude</text>
+  <text x="460" y="186" font-size="10.5" fill="#57606a" text-anchor="middle">메인 PC · localhost 로 허브 호출</text>
+  <text x="460" y="202" font-size="10.5" fill="#57606a" text-anchor="middle">외부 노출 불필요</text>
+
+  <defs>
+    <marker id="s" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#94a3b8"/></marker>
+  </defs>
+  <line x1="135" y1="238" x2="150" y2="212" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#s)"/>
+  <line x1="270" y1="238" x2="200" y2="212" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#s)"/>
+  <line x1="270" y1="175" x2="358" y2="175" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#s)"/>
+
+  <!-- outside zone -->
+  <rect x="620" y="120" width="270" height="250" rx="14" fill="#fef2f2" stroke="#dc2626" stroke-width="1.6"/>
+  <text x="640" y="146" font-size="13" font-weight="700" fill="#b91c1c">🌐 외부 인터넷 (선택·주의)</text>
+
+  <rect x="650" y="164" width="210" height="60" rx="9" fill="#ffffff" stroke="#dc2626" stroke-width="1.2"/>
+  <text x="755" y="188" font-size="11.5" font-weight="600" fill="#1f2328" text-anchor="middle">HTTPS 터널</text>
+  <text x="755" y="207" font-size="10" fill="#57606a" text-anchor="middle">tailscale funnel · cloudflared</text>
+
+  <rect x="650" y="238" width="210" height="52" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="755" y="260" font-size="11.5" font-weight="600" fill="#1f2328" text-anchor="middle">☁ 클라우드 Claude</text>
+  <text x="755" y="278" font-size="10" fill="#57606a" text-anchor="middle">claude.ai/code 를 사령탑으로</text>
+
+  <text x="640" y="316" font-size="10.5" fill="#b91c1c">⚠ 터널을 여는 순간 URL 을 아는</text>
+  <text x="640" y="332" font-size="10.5" fill="#b91c1c">누구나 접근 가능 — 토큰이 유일한</text>
+  <text x="640" y="348" font-size="10.5" fill="#b91c1c">방어선. 길게 유지 · 유출 시 즉시 교체.</text>
+
+  <line x1="620" y1="194" x2="562" y2="180" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 3" marker-end="url(#s)"/>
+
+  <text x="32" y="420" font-size="11.5" fill="#57606a">평문 ws:// 는 토큰이 노출됩니다. 공개가 불가피하면 리버스 프록시(Caddy/nginx)로 HTTPS/WSS 를 씌우세요. 헤드리스에서 bypassPermissions 는 신뢰 환경에서만.</text>
+</svg>

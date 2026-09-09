@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 430" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif">
+  <rect width="920" height="430" rx="16" fill="#ffffff"/>
+  <rect x="1" y="1" width="918" height="428" rx="15" fill="none" stroke="#d0d7de" stroke-width="2"/>
+  <text x="32" y="44" font-size="21" font-weight="700" fill="#1f2328">사령탑(Commander) 모드</text>
+  <text x="32" y="68" font-size="13" fill="#57606a">허브가 도는 메인 PC에서 이 폴더로 Claude를 실행하면 CLAUDE.md 지침에 따라 사령탑이 됩니다.</text>
+
+  <defs>
+    <marker id="c1" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#7c3aed"/></marker>
+    <marker id="c2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#0ea5e9"/></marker>
+  </defs>
+
+  <!-- User -->
+  <rect x="40" y="150" width="150" height="90" rx="12" fill="#faf5ff" stroke="#7c3aed" stroke-width="1.8"/>
+  <text x="115" y="188" font-size="26" text-anchor="middle">🧑‍⚕️</text>
+  <text x="115" y="216" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">사용자</text>
+
+  <!-- Commander -->
+  <rect x="290" y="130" width="200" height="130" rx="12" fill="#0f172a" stroke="#0ea5e9" stroke-width="2"/>
+  <text x="390" y="168" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">🧭 사령탑 Claude</text>
+  <text x="390" y="192" font-size="11.5" fill="#9fb3c8" text-anchor="middle">메인 PC · 이 저장소</text>
+  <text x="390" y="216" font-size="11" fill="#cbd5e1" text-anchor="middle">/api/fleet 로 현황 확인</text>
+  <text x="390" y="234" font-size="11" fill="#cbd5e1" text-anchor="middle">/api/start · /api/history</text>
+
+  <!-- Hub + PC -->
+  <rect x="590" y="90" width="290" height="80" rx="12" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="1.6"/>
+  <text x="610" y="120" font-size="13" font-weight="700" fill="#1f2328">허브 API  (localhost:8787)</text>
+  <text x="610" y="142" font-size="11.5" fill="#57606a">토큰: .fleet-token · 외부 노출 불필요</text>
+  <text x="610" y="159" font-size="11.5" fill="#57606a">GET /api/fleet · POST /api/start …</text>
+
+  <rect x="590" y="220" width="290" height="90" rx="12" fill="#faf5ff" stroke="#7c3aed" stroke-width="1.6"/>
+  <text x="610" y="250" font-size="13" font-weight="700" fill="#1f2328">💻 대상 PC (예: hospital-pc)</text>
+  <text x="610" y="272" font-size="11.5" fill="#57606a">지시받은 프로젝트에서 세션 실행</text>
+  <text x="610" y="290" font-size="11.5" fill="#57606a">결과가 history 로 사령탑에 반환</text>
+
+  <!-- arrows -->
+  <line x1="190" y1="185" x2="286" y2="185" stroke="#7c3aed" stroke-width="2" marker-end="url(#c1)"/>
+  <text x="238" y="176" font-size="10.5" fill="#7c3aed" text-anchor="middle" font-weight="700">자연어 지시</text>
+
+  <line x1="490" y1="150" x2="586" y2="130" stroke="#0ea5e9" stroke-width="2" marker-end="url(#c2)"/>
+  <line x1="588" y1="150" x2="492" y2="170" stroke="#8899a6" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#c2)"/>
+  <line x1="735" y1="170" x2="735" y2="216" stroke="#8899a6" stroke-width="1.6" marker-end="url(#c1)"/>
+  <line x1="490" y1="240" x2="586" y2="262" stroke="#8899a6" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <text x="470" y="300" font-size="10.5" fill="#57606a">history 폴링 → [턴 완료] 시 요약 보고</text>
+
+  <line x1="286" y1="210" x2="192" y2="210" stroke="#0ea5e9" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#c2)"/>
+  <text x="238" y="228" font-size="10.5" fill="#0ea5e9" text-anchor="middle">결과 요약</text>
+
+  <!-- example -->
+  <rect x="40" y="290" width="500" height="110" rx="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+  <text x="58" y="316" font-size="12" font-weight="700" fill="#1f2328">이렇게 말하면 됩니다</text>
+  <text x="58" y="340" font-size="12" fill="#3b3f45">💬 "hospital-pc의 emr-batch에 '어제 로그 요약해줘' 시켜줘"</text>
+  <text x="58" y="362" font-size="12" fill="#3b3f45">💬 "그 작업 어떻게 됐어?"</text>
+  <text x="58" y="384" font-size="12" fill="#3b3f45">💬 "office-pc에 최근 인풋된 파일 찾아줘"</text>
+
+  <text x="590" y="344" font-size="11.5" fill="#57606a">외출 시엔 같은 세션에</text>
+  <text x="590" y="362" font-size="11.5" fill="#57606a">Remote Control을 켜면 (claude.ai /</text>
+  <text x="590" y="380" font-size="11.5" fill="#57606a">모바일 앱) 폰에서도 지시 가능.</text>
+</svg>

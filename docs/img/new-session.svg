@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 470" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif">
+  <rect width="620" height="470" rx="16" fill="#ffffff"/>
+  <rect x="1" y="1" width="618" height="468" rx="15" fill="none" stroke="#d0d7de" stroke-width="2"/>
+  <text x="28" y="42" font-size="18" font-weight="700" fill="#1f2328">[＋ 새 세션] 모달</text>
+
+  <!-- dialog -->
+  <rect x="130" y="66" width="360" height="368" rx="12" fill="#0f1728" stroke="#26344f" stroke-width="1.5"/>
+  <text x="152" y="98" font-size="15" font-weight="700" fill="#e5edf7">새 세션 시작</text>
+  <text x="152" y="118" font-size="11.5" fill="#7c8aa0">office-pc / crawler</text>
+
+  <text x="152" y="146" font-size="11.5" fill="#9fb3c8">엔진</text>
+  <rect x="152" y="152" width="150" height="30" rx="6" fill="#182338" stroke="#7c3aed" stroke-width="1.2"/>
+  <text x="166" y="172" font-size="12" fill="#e5edf7">Claude ▾</text>
+  <rect x="318" y="152" width="150" height="30" rx="6" fill="#131d33" stroke="#26344f" stroke-width="1"/>
+  <text x="332" y="172" font-size="12" fill="#7c8aa0">Codex</text>
+
+  <text x="152" y="206" font-size="11.5" fill="#9fb3c8">모델</text>
+  <rect x="152" y="212" width="316" height="30" rx="6" fill="#182338"/>
+  <text x="166" y="232" font-size="12" fill="#e5edf7">기본 모델  ▾   (opus · sonnet · haiku …)</text>
+
+  <text x="152" y="266" font-size="11.5" fill="#9fb3c8">첫 프롬프트</text>
+  <rect x="152" y="272" width="316" height="58" rx="6" fill="#182338"/>
+  <text x="166" y="294" font-size="11.5" fill="#c9d6e6">예) 테스트 전부 돌리고 실패</text>
+  <text x="166" y="310" font-size="11.5" fill="#c9d6e6">원인 고쳐줘</text>
+
+  <text x="152" y="352" font-size="10.5" fill="#7c8aa0">이어갈 세션 ID (선택) — 터미널 세션 이어받기</text>
+  <rect x="152" y="358" width="316" height="26" rx="6" fill="#131d33"/>
+  <text x="166" y="375" font-size="10.5" fill="#6b7c93">예) 23f6d80b-175a-4be2-…</text>
+
+  <rect x="318" y="396" width="70" height="30" rx="6" fill="#243044"/>
+  <text x="353" y="416" font-size="12" fill="#c9d6e6" text-anchor="middle">취소</text>
+  <rect x="398" y="396" width="70" height="30" rx="6" fill="#7c3aed"/>
+  <text x="433" y="416" font-size="12" fill="#ffffff" text-anchor="middle">시작</text>
+
+  <text x="28" y="456" font-size="11" fill="#57606a">엔진·모델은 세션 시작 후에도 헤더 드롭다운으로 바꿀 수 있습니다.</text>
+</svg>

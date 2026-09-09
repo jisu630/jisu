@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 560" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif">
+  <rect width="940" height="560" rx="16" fill="#ffffff"/>
+  <rect x="1" y="1" width="938" height="558" rx="15" fill="none" stroke="#d0d7de" stroke-width="2"/>
+  <text x="28" y="42" font-size="20" font-weight="700" fill="#1f2328">대시보드 화면 구성</text>
+
+  <!-- app window -->
+  <rect x="28" y="60" width="620" height="472" rx="10" fill="#0b1220" stroke="#1f2937" stroke-width="1.5"/>
+
+  <!-- header -->
+  <rect x="28" y="60" width="620" height="40" rx="10" fill="#111a2e"/>
+  <text x="46" y="85" font-size="13" font-weight="700" fill="#e5edf7">Claude Fleet</text>
+  <circle cx="560" cy="80" r="5" fill="#22c55e"/>
+  <text x="574" y="84" font-size="11.5" fill="#9fb3c8">연결됨</text>
+
+  <!-- search -->
+  <rect x="44" y="112" width="360" height="30" rx="7" fill="#1b2740"/>
+  <text x="58" y="132" font-size="12" fill="#6b7c93">🔍 PC · 프로젝트 · 세션 검색</text>
+
+  <!-- PC card 1 -->
+  <rect x="44" y="156" width="360" height="150" rx="9" fill="#131d33" stroke="#26344f" stroke-width="1.2"/>
+  <circle cx="62" cy="178" r="4.5" fill="#22c55e"/>
+  <text x="76" y="182" font-size="13.5" font-weight="700" fill="#e5edf7">office-pc</text>
+  <rect x="316" y="167" width="72" height="24" rx="6" fill="#243044"/>
+  <text x="352" y="183" font-size="11" fill="#c9d6e6" text-anchor="middle">🖥 화면</text>
+  <text x="62" y="208" font-size="11.5" fill="#7c8aa0">프로젝트 (2)</text>
+  <text x="62" y="230" font-size="12.5" fill="#cdd8e8">📁 crawler</text>
+  <rect x="300" y="217" width="86" height="22" rx="6" fill="#7c3aed"/>
+  <text x="343" y="232" font-size="11" fill="#ffffff" text-anchor="middle">＋ 새 세션</text>
+  <text x="62" y="256" font-size="12.5" fill="#cdd8e8">📁 api-server</text>
+  <rect x="300" y="243" width="86" height="22" rx="6" fill="#7c3aed"/>
+  <text x="343" y="258" font-size="11" fill="#ffffff" text-anchor="middle">＋ 새 세션</text>
+  <text x="62" y="282" font-size="11.5" fill="#7c8aa0">세션 (1)</text>
+  <rect x="56" y="288" width="336" height="12" rx="3" fill="#1b2740"/>
+
+  <!-- PC card 2 -->
+  <rect x="44" y="320" width="360" height="60" rx="9" fill="#131d33" stroke="#26344f" stroke-width="1.2"/>
+  <circle cx="62" cy="342" r="4.5" fill="#6b7280"/>
+  <text x="76" y="346" font-size="13.5" font-weight="700" fill="#98a6bd">hospital-pc</text>
+  <text x="62" y="368" font-size="11.5" fill="#6b7c93">오프라인 · 세션 (0)</text>
+
+  <!-- right panel: transcript -->
+  <rect x="416" y="112" width="216" height="404" rx="9" fill="#0f1728" stroke="#26344f" stroke-width="1.2"/>
+  <text x="430" y="134" font-size="11.5" fill="#7c8aa0">office-pc / crawler — 23f6d80b</text>
+  <rect x="430" y="146" width="188" height="40" rx="6" fill="#182338"/>
+  <text x="440" y="163" font-size="10.5" fill="#9fb3c8">👤 테스트 전부 돌리고</text>
+  <text x="440" y="177" font-size="10.5" fill="#9fb3c8">실패 원인 고쳐줘</text>
+  <rect x="430" y="194" width="188" height="70" rx="6" fill="#14233b"/>
+  <text x="440" y="211" font-size="10.5" fill="#8fd6a8">🤖 테스트를 실행합니다…</text>
+  <text x="440" y="228" font-size="10" fill="#7c8aa0">🔧 Bash: npm test</text>
+  <text x="440" y="244" font-size="10" fill="#7c8aa0">📄 3 failed → 수정 중</text>
+  <text x="440" y="258" font-size="10" fill="#c9a227">⧗ 턴 진행 중…</text>
+  <!-- prompt box -->
+  <rect x="430" y="452" width="188" height="50" rx="7" fill="#1b2740"/>
+  <text x="440" y="474" font-size="10.5" fill="#6b7c93">프롬프트 입력 —</text>
+  <text x="440" y="489" font-size="10.5" fill="#6b7c93">Enter 전송 · Shift+Enter 줄바꿈</text>
+
+  <!-- annotations -->
+  <g font-size="12.5" fill="#1f2328">
+    <line x1="600" y1="80" x2="690" y2="80" stroke="#0ea5e9" stroke-width="1.4"/>
+    <circle cx="690" cy="80" r="3" fill="#0ea5e9"/>
+    <text x="700" y="76" font-weight="700">① 연결 상태</text>
+    <text x="700" y="92" font-size="11" fill="#57606a">허브 접속 표시등</text>
+
+    <line x1="404" y1="127" x2="690" y2="150" stroke="#0ea5e9" stroke-width="1.4"/>
+    <circle cx="690" cy="150" r="3" fill="#0ea5e9"/>
+    <text x="700" y="146" font-weight="700">② 검색</text>
+    <text x="700" y="162" font-size="11" fill="#57606a">PC·프로젝트·세션 필터</text>
+
+    <line x1="388" y1="179" x2="690" y2="215" stroke="#0ea5e9" stroke-width="1.4"/>
+    <circle cx="690" cy="215" r="3" fill="#0ea5e9"/>
+    <text x="700" y="211" font-weight="700">③ PC 카드 · 🖥 화면</text>
+    <text x="700" y="227" font-size="11" fill="#57606a">온라인 여부 · 원격 스크린샷</text>
+
+    <line x1="386" y1="228" x2="690" y2="285" stroke="#7c3aed" stroke-width="1.4"/>
+    <circle cx="690" cy="285" r="3" fill="#7c3aed"/>
+    <text x="700" y="281" font-weight="700">④ ＋ 새 세션</text>
+    <text x="700" y="297" font-size="11" fill="#57606a">프로젝트별 세션 시작</text>
+
+    <line x1="634" y1="220" x2="690" y2="360" stroke="#0ea5e9" stroke-width="1.4"/>
+    <circle cx="690" cy="360" r="3" fill="#0ea5e9"/>
+    <text x="700" y="356" font-weight="700">⑤ 트랜스크립트</text>
+    <text x="700" y="372" font-size="11" fill="#57606a">답변·도구 사용·결과·비용</text>
+    <text x="700" y="388" font-size="11" fill="#57606a">을 실시간 스트리밍</text>
+
+    <line x1="634" y1="478" x2="690" y2="430" stroke="#0ea5e9" stroke-width="1.4"/>
+    <circle cx="690" cy="430" r="3" fill="#0ea5e9"/>
+    <text x="700" y="426" font-weight="700">⑥ 프롬프트 입력</text>
+    <text x="700" y="442" font-size="11" fill="#57606a">같은 세션에 대화 이어가기</text>
+  </g>
+
+  <text x="28" y="550" font-size="11.5" fill="#57606a">의존성 없는 HTML 한 장. 휴대폰 브라우저에서도 동일하게 동작합니다.</text>
+</svg>
