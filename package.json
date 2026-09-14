@@ -11,7 +11,8 @@
     "setup": "node setup.js",
     "server": "node server/server.js",
     "agent": "node agent/agent.js",
-    "demo:agent": "node agent/agent.js test/demo.config.json"
+    "demo:agent": "node agent/agent.js test/demo.config.json",
+    "tunnel": "node scripts/tunnel.js"
   },
   "dependencies": {
     "ws": "^8.18.0"

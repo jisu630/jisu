@@ -154,7 +154,7 @@ claude --remote-control "fleet-사령탑"     # 또는 세션 안에서 /remote-
 
 그러면 claude.ai / Claude 모바일 앱의 세션 목록에 사령탑이 나타나고, 폰에서 "노트북에 이거 시켜"라고 보내면 메인 PC의 Claude가 받아 처리합니다.
 
-> ⚠ 사령탑은 **허브가 실행 중인 그 머신의 로컬 Claude 세션**에서만 동작합니다. claude.ai/code 같은 클라우드 세션에서 쓰려면 [10-2](#10-2-외부에서-사령탑-쓰기-선택)의 HTTPS 터널이 필요합니다.
+> ⚠ 사령탑은 **허브가 실행 중인 그 머신의 로컬 Claude 세션**에서만 동작합니다. claude.ai/code 같은 클라우드 세션에서 쓰려면 [10-2](#10-2-외부폰에서-접속하기-npm-run-tunnel)의 `npm run tunnel` 로 HTTPS 주소를 먼저 발급하세요.
 
 ---
 
@@ -234,20 +234,40 @@ fleet-memory/
 - `FLEET_TOKEN`은 충분히 길게(`openssl rand -hex 24`) 생성하고 저장소에 커밋하지 마세요(`fleet-agent.config.json`·`.fleet-token`은 `.gitignore` 처리).
 - 굳이 공개해야 하면 리버스 프록시(Caddy/nginx)로 **HTTPS/WSS**를 씌우세요 — 평문 `ws://`는 토큰이 그대로 노출됩니다.
 
-### 10-2. 외부에서 사령탑 쓰기 (선택)
+### 10-2. 외부·폰에서 접속하기 (`npm run tunnel`)
 
-클라우드 Claude 채팅(claude.ai/code)을 사령탑으로 쓰려면 허브에 외부 접근이 필요하므로 메인 PC에서 HTTPS 터널을 엽니다.
+집 밖, 다른 네트워크, 휴대폰에서도 대시보드에 들어오려면 허브를 HTTPS 로 공개합니다. 허브가 도는 머신에서 한 줄이면 됩니다.
 
 ```bash
-tailscale funnel 8787        # https://맥미니이름.xxxx.ts.net 발급
-# 또는: cloudflared tunnel --url http://localhost:8787
+npm run tunnel                 # cloudflared 있으면 즉석 터널(계정 불필요), 없으면 Tailscale Funnel
+npm run tunnel -- --tailscale  # Tailscale Funnel 강제 — 고정 주소, 백그라운드 유지 (권장)
 ```
 
-그 다음 새 Claude 채팅에서 말하면 됩니다.
+실행하면 이런 안내가 출력됩니다.
+
+```
+✅ 외부 접속 주소 (Tailscale Funnel · 백그라운드 유지)
+
+   대시보드:  https://macmini.tail1234.ts.net
+   HTTP API:  https://macmini.tail1234.ts.net/api/fleet   (Authorization: Bearer <토큰>)
+
+   토큰: .fleet-token 파일의 값 을 입력하세요.
+   📱 폰: 위 주소를 브라우저로 열고 토큰 입력 → "홈 화면에 추가" 하면 앱처럼 씁니다.
+```
+
+| 방식 | 장점 | 단점 |
+|---|---|---|
+| **cloudflared 즉석 터널** | 계정 없이 즉시 (`brew install cloudflared` / `winget install Cloudflare.cloudflared`) | 주소가 매번 바뀜, 터미널 닫으면 끊김 |
+| **Tailscale Funnel** | 고정 주소, 백그라운드 유지, 사설망과 겸용 | Tailscale 계정 + 관리 콘솔에서 Funnel 허용 필요 |
+
+- 대시보드는 https 아래에서 자동으로 `wss://` 를 쓰므로 추가 설정이 없습니다.
+- 터널 도구가 없으면 스크립트가 OS 별 설치 방법을 안내합니다.
+- 상시 공개가 부담되면 **Funnel 없이 Tailscale 사설망만** 쓰세요 — 같은 tailnet 의 폰에서는 `http://<Tailscale IP>:8787` 로 터널 없이 들어옵니다.
+- 클라우드 Claude(claude.ai/code)를 사령탑으로 쓰려면 새 채팅에서 이렇게 말하면 됩니다:
 
 > 내 fleet 허브는 https://…ts.net 이고 토큰은 XXX야. office-pc의 crawler에 "테스트 돌리고 실패 고쳐줘" 세션 시작하고 결과 알려줘.
 
-> ⚠ **터널을 여는 순간 URL을 아는 사람에게 인터넷에서 접근 가능해집니다.** 토큰이 유일한 방어선이므로 길게 유지하고, 부담되면 터널을 쓰지 말고 대시보드(사설망)만 쓰세요. 토큰이 새면 즉시 `.fleet-token`을 바꾸면 됩니다.
+> ⚠ **터널이 열려 있는 동안은 주소를 아는 누구나 접속을 시도할 수 있습니다.** 토큰이 유일한 방어선이므로 길게 유지하고(IP당 10분 20회 실패 시 자동 차단), 쓰지 않을 때는 닫으세요(`Ctrl+C` / `tailscale funnel --bg off`). 토큰이 새면 즉시 `.fleet-token`을 바꾸고 허브를 재시작하면 됩니다.
 
 ### 10-3. 권한 모드 주의
 
@@ -264,6 +284,7 @@ tailscale funnel 8787        # https://맥미니이름.xxxx.ts.net 발급
 | 토큰 입력해도 접속 안 됨 | 허브의 `FLEET_TOKEN`과 다름. 값 재확인. 반복 실패 시 IP가 10분간 자동 차단될 수 있음. |
 | `🖥 화면`이 검게 나오거나 실패 | macOS는 화면 기록 권한, Linux는 `scrot`/ImageMagick 필요([7장](#7-원격-화면-보기)). |
 | 다른 네트워크의 PC가 안 붙음 | Tailscale 설치 후 허브의 Tailscale IP를 주소로 사용. |
+| 폰·외부에서 대시보드가 안 열림 | 허브 머신에서 `npm run tunnel` 로 HTTPS 주소 발급([10-2](#10-2-외부폰에서-접속하기-npm-run-tunnel)). 같은 tailnet이면 `http://<Tailscale IP>:8787`. |
 | 파일 편집 외 명령이 거부됨 | 권한 모드가 `acceptEdits`. 신뢰 환경이면 `bypassPermissions`로 변경([10-3](#10-3-권한-모드-주의)). |
 | 세션이 죽었는데 프롬프트를 또 보냄 | 에이전트가 `--resume <session_id>`로 자동 재개하므로 그대로 이어서 보내면 됩니다. |
 

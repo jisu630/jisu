@@ -65,6 +65,7 @@ if (role === '1') {
   console.log('\n각 PC 에서는 같은 저장소를 받아 npm run setup → 2번(에이전트)을 선택하고,');
   console.log('위 IP 와 토큰을 입력하면 됩니다.');
   console.log('⚠ 다른 네트워크의 PC 와 연결하려면 Tailscale 설치 후 Tailscale IP 를 쓰세요.');
+  console.log('📱 폰·외부에서 대시보드에 들어오려면 허브 실행 후:  npm run tunnel   (HTTPS 주소 자동 발급)');
   console.log('────────────────────────────────────────────\n');
   if (port !== '8787') console.log(`포트를 바꿨으므로 실행 시: PORT=${port} npm run server\n`);
   finished = true;

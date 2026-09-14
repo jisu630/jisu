@@ -118,6 +118,22 @@ claude --remote-control "fleet-사령탑"     # 또는 세션 안에서 /remote-
 
 그러면 claude.ai / Claude 모바일 앱의 세션 목록에 이 사령탑이 나타나고, 폰에서 그 채팅에 "노트북에 이거 시켜" 라고 보내면 맥미니의 Claude 가 받아서 처리합니다. fleet-memory 도 같은 머신에 있으므로 과거 기록 질문("어제 노트북에서 뭐 했지?")에도 답할 수 있습니다.
 
+## 외부·폰에서 접속하기 (`npm run tunnel`)
+
+집 밖·다른 망·휴대폰에서도 대시보드에 들어오려면 허브를 HTTPS 로 공개하면 됩니다. 허브가 도는 머신에서 한 줄:
+
+```bash
+npm run tunnel                 # cloudflared 가 있으면 즉석 터널(계정 불필요), 없으면 Tailscale Funnel
+npm run tunnel -- --tailscale  # Tailscale Funnel 강제 (고정 주소 https://이름.xxxx.ts.net, 권장)
+```
+
+`https://…` 주소가 출력됩니다. 폰 브라우저로 열고 토큰을 입력한 뒤 **"홈 화면에 추가"** 하면 앱처럼 쓸 수 있습니다. 대시보드는 https 아래에서 자동으로 `wss://` 를 쓰므로 추가 설정이 없습니다. 터널 도구가 없으면 설치 방법을 안내합니다 (`brew install cloudflared` / `winget install Cloudflare.cloudflared` / [Tailscale](https://tailscale.com/download)).
+
+- **cloudflared 즉석 터널**: 계정 없이 바로 되지만 주소가 실행마다 바뀌고, 터미널을 닫으면 끊깁니다. 잠깐 쓸 때.
+- **Tailscale Funnel**: 주소가 고정되고 백그라운드로 유지됩니다(끄기 `tailscale funnel --bg off`). 관리 콘솔에서 Funnel 을 허용해야 합니다.
+
+⚠ 터널이 열려 있는 동안은 주소를 아는 누구나 접속을 **시도**할 수 있습니다. 토큰이 유일한 방어선입니다(길게 유지, IP 당 10분 20회 실패 시 자동 차단). 상시 공개가 부담되면 Tailscale **사설망(Funnel 없이)** 으로만 폰을 붙이세요 — 같은 tailnet 의 폰에서는 `http://<Tailscale IP>:8787` 로 터널 없이 들어옵니다.
+
 ## HTTP API — 외부에서 허브에 직접 명령 (고급)
 
 허브는 대시보드 외에 HTTP API 도 제공합니다 (`Authorization: Bearer <FLEET_TOKEN>`):
@@ -130,11 +146,10 @@ claude --remote-control "fleet-사령탑"     # 또는 세션 안에서 /remote-
 | POST | `/api/stop` | `{pc, sessionKey}` |
 | GET | `/api/history?pc=..&sessionKey=..` | 대화 내용 (기본 텍스트, `&format=json` 가능) |
 
-**클라우드 Claude 채팅(claude.ai/code)을 사령탑으로 쓰려면**, 클라우드에서 허브에 접근할 수 있어야 하므로 맥미니에서 HTTPS 터널을 하나 엽니다:
+**클라우드 Claude 채팅(claude.ai/code)을 사령탑으로 쓰려면**, 클라우드에서 허브에 접근할 수 있어야 하므로 맥미니에서 HTTPS 터널을 하나 엽니다 (아래 [외부·폰에서 접속](#외부폰에서-접속하기-npm-run-tunnel) 참고):
 
 ```bash
-tailscale funnel 8787        # https://맥미니이름.xxxx.ts.net 발급 (Tailscale 설치 시)
-# 또는: cloudflared tunnel --url http://localhost:8787
+npm run tunnel               # https://…trycloudflare.com 또는 https://맥미니이름.xxxx.ts.net 발급
 ```
 
 그 다음 새 Claude 채팅에서 이렇게 말하면 됩니다:
