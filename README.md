@@ -42,7 +42,11 @@ bash scripts/install-macos.sh
 npx pm2 start "npm run agent" --name claude-fleet-agent
 ```
 
-Windows는 작업 스케줄러에 `node agent\agent.js` 를 로그온 시 실행으로 등록하면 됩니다.
+**Windows** 는 아래 한 줄로 작업 스케줄러에 등록됩니다 (로그온 시 자동 시작 + 죽으면 재시작, 허브/에이전트 자동 감지, 해제는 `uninstall` 인자):
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\install-windows.ps1
+```
 
 ### 3. 대시보드
 

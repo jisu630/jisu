@@ -62,6 +62,7 @@ cd claude-fleet && npm install && npm run setup
   ```
 - 터미널을 닫아도 계속 돌게 하려면 상주 등록을 하세요.
   - **macOS**: `bash scripts/install-macos.sh` (로그인 시 자동 시작 + 죽으면 재시작, 해제는 `uninstall` 인자)
+  - **Windows**: `powershell -ExecutionPolicy Bypass -File scripts\install-windows.ps1` (작업 스케줄러 등록, 동일 동작)
   - **그 외**: `npx pm2 start "npm run server" --name fleet-hub`
 
 ### 2-2. 세션을 돌릴 각 PC (`2` 선택)
@@ -77,7 +78,7 @@ cd claude-fleet && npm install && npm run setup
   ```bash
   npm run agent
   ```
-- 상주: `npx pm2 start "npm run agent" --name claude-fleet-agent`, macOS는 `scripts/install-macos.sh`, Windows는 작업 스케줄러에 `node agent\agent.js` 로그온 실행 등록.
+- 상주: macOS는 `bash scripts/install-macos.sh`, Windows는 `powershell -ExecutionPolicy Bypass -File scripts\install-windows.ps1`, 그 외는 `npx pm2 start "npm run agent" --name claude-fleet-agent`.
 
 > 다른 네트워크의 PC를 연결하려면 [Tailscale](https://tailscale.com)을 설치하고 허브의 **Tailscale IP**를 주소로 쓰세요.
 
